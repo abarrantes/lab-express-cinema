@@ -8,7 +8,6 @@ const Movie = require('../models/movie')
 router.get('/', (req, res, next) => {
   Movie.find()
     .then((theMovies) => {
-      console.log(theMovies);
       res.render('movies', { theMovies });
     })
     .catch((err) => {
@@ -16,6 +15,16 @@ router.get('/', (req, res, next) => {
     })
 });
 
+router.get('/:id', (req, res, next) => {
+  let movieId = req.params.id;
+  Movie.findById(movieId)
+    .then((theMovie) => {
+      res.render('singleMovie', { theMovie });
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+});
 // router.get('/:id', (req, res, next) => {
 //   const movieId = req.params.id;
 //   res.render('movies');
