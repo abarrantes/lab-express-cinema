@@ -1,0 +1,11 @@
+<div class="row moviesContainer">
+
+  {{#each theMovies}}
+  <div class="col-sm-3">
+    <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+    <h4>{{this.title}}</h4>
+    <a href="/movies/{{this._id}}">See details!</a>
+  </div>
+{{/each}}
+
+</div>
